@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bénin Villes Propres | Une ville propre, des vies sauvées</title>
+    <title>Afrique Continent Propre | Une Afrique propre, des vies sauvées</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -118,16 +118,17 @@
 
         /* Navigation améliorée */
         .navbar {
+            background-color: white;
             padding: 20px 0;
             transition: all 0.4s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(235, 231, 231, 0.05);
         }
 
         .navbar.scrolled {
             padding: 10px 0;
             background: #FFFFFF !important;
             backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(250, 251, 248, 0.08);
         }
 
         .navbar-brand img {
@@ -923,136 +924,166 @@
                 font-size: 2rem;
             }
         }
-         .partner-section {
-            background: linear-gradient(to right, rgba(46, 139, 87, 0.05), rgba(70, 130, 180, 0.05));
-            padding: 120px 0;
+        
+        /* Styles spécifiques pour Afrique Continent Propre */
+        .africa-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1546190255-451a91afc548?q=80&w=2070') center/cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .africa-hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        .africa-hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .africa-map {
+            position: relative;
+            height: 500px;
+            background: url('https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?q=80&w=2069') center/cover;
+        }
+        
+        .africa-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(46, 139, 87, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 2rem;
             text-align: center;
         }
-
-        .partner-container {
+        
+        .africa-overlay h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .timeline {
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px;
-            background: white;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.03);
         }
-
-        .partner-container:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .partner-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.5s ease;
-        }
-
-        .partner-image:hover {
-            transform: scale(1.02);
-        }
-
-        .partner-description {
-            max-width: 800px;
-            margin: 30px auto 0;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        .watermark {
-            position: absolute;
-            font-size: 12rem;
-            font-weight: 800;
-            opacity: 0.03;
+        
+        .timeline-content h4 {
             color: var(--primary-color);
-            z-index: 0;
-            pointer-events: none;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .watermark-top {
-            top: 20px;
-            right: 50px;
-            transform: rotate(10deg);
-        }
-
-        .watermark-bottom {
-            bottom: 20px;
-            left: 50px;
-            transform: rotate(-10deg);
-        }
-
-        .partner-caption {
-            margin-top: 20px;
-            font-style: italic;
-            color: var(--gray);
-            font-size: 1rem;
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 992px) {
-            .section {
-                padding: 80px 0;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            .watermark {
-                font-size: 8rem;
-            }
+            margin-bottom: 10px;
         }
         
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .partner-container {
-                padding: 20px;
-            }
-            
-            .watermark {
-                font-size: 5rem;
-            }
-            
-            .watermark-top {
-                top: 10px;
-                right: 20px;
-            }
-            
-            .watermark-bottom {
-                bottom: 10px;
-                left: 20px;
-            }
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            top: calc(50% - 10px);
+            transform: rotate(45deg);
+            z-index: -1;
         }
         
-        @media (max-width: 576px) {
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .partner-description {
-                font-size: 1rem;
-            }
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -10px;
+            right: auto;
+        }
+        
+        .country-flag {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid var(--primary-light);
+        }
+        
+        .africa-stats {
+            background: var(--primary-color);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .africa-stats .stat-number {
+            color: white;
+            background: none;
+            -webkit-text-fill-color: white;
+        }
+        
+        .africa-stats .stat-label {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .country-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(46, 139, 87, 0.1);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .country-item:hover {
+            transform: translateY(-5px);
+            background: rgba(46, 139, 87, 0.2);
+        }
+        
+        .country-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
         }
     </style>
 </head>
@@ -1060,7 +1091,7 @@
     <!-- Navigation améliorée -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
                 <img src="assets/img/logo.jpg" alt="Bénin Villes Propres" height="100" width="100">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -1069,196 +1100,68 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Accueil</a>
+                        <a class="nav-link" href="index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">À propos</a>
+                        <a class="nav-link" href="index.html#about">À propos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#achievements">Réalisations</a>
+                        <a class="nav-link" href="index.html#achievements">Réalisations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projets</a>
+                        <a class="nav-link" href="index.html#projects">Projets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#team">Équipe</a>
+                        <a class="nav-link" href="index.html#team">Équipe</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#news">Actualités</a>
+                        <a class="nav-link" href="index.html#news">Actualités</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Afrique Continent Propre</a>
                     </li>
                     <li class="nav-item ms-lg-2">
-                        <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#donModal">Faire Un Don</a>
+                        <a class="btn btn-primary" href="#contact">Faire Un Don</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section améliorée -->
-    <section class="hero-section">
-        <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <!-- Hero Section pour Afrique Continent Propre -->
+    <section class="africa-hero">
+        <div class="container">
+            <h1>Afrique Continent Propre</h1>
+            <p>Une Afrique propre, des vies sauvées</p>
+            <div class="d-flex flex-wrap justify-content-center hero-buttons">
+                <a href="#mission" class="btn btn-primary btn-lg">Découvrir notre mission</a>
+                <a href="#contact" class="btn btn-outline-light btn-lg">Nous soutenir</a>
             </div>
-            
-            <div class="carousel-inner">
-                <!-- Slide 1 -->
-                <div class="carousel-item active">
-                    <img src="assets/img/2.jpg" class="d-block w-100" alt="Action de propreté urbaine">
-                    <div class="hero-content">
-                        <h1 class="mb-4">Une ville propre, des vies sauvées</h1>
-                        <p class="hero-subtitle">L'ONG Bénin Villes Propres œuvre pour l'assainissement et la propreté des villes béninoises à travers des actions concrètes et innovantes.</p>
-                        <div class="d-flex flex-wrap justify-content-center hero-buttons">
-                            <a href="#about" class="btn btn-primary btn-lg">Découvrir notre mission</a>
-                            <a href="#contact" class="btn btn-outline-light btn-lg">Nous soutenir</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Slide 2 -->
-                <div class="carousel-item">
-                    <img src="assets/img/3.jpeg" class="d-block w-100" alt="Équipe de bénévoles">
-                    <div class="hero-content">
-                        <h1 class="mb-4">Engagement citoyen pour un Bénin propre</h1>
-                        <p class="hero-subtitle">Rejoignez notre communauté de 5000+ bénévoles engagés pour transformer nos villes et préserver notre environnement.</p>
-                        <div class="d-flex flex-wrap justify-content-center hero-buttons">
-                            <a href="#team" class="btn btn-primary btn-lg">Rencontrer notre équipe</a>
-                            <a href="#contact" class="btn btn-outline-light btn-lg">Devenir bénévole</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Slide 3 -->
-                <div class="carousel-item">
-                    <img src="assets/img/1.jpeg" class="d-block w-100" alt="Concours de propreté">
-                    <div class="hero-content">
-                        <h1 class="mb-4">Concours "Ville Propre"</h1>
-                        <p class="hero-subtitle">Découvrez notre initiative phare qui récompense les communes les plus propres du Bénin et transforme l'image de nos villes.</p>
-                        <div class="d-flex flex-wrap justify-content-center hero-buttons">
-                            <a href="#achievements" class="btn btn-primary btn-lg">Voir nos réalisations</a>
-                            <a href="#news" class="btn btn-outline-light btn-lg">Dernières actualités</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Précédent</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Suivant</span>
-            </button>
         </div>
     </section>
 
-    <!-- Stats Section améliorée -->
+    <!-- Section Présentation -->
     <section class="py-5 section">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="stat-item fade-in">
-                        <div class="stat-number">25+</div>
-                        <div class="stat-label">Communes impactées</div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="stat-item fade-in">
-                        <div class="stat-number">150+</div>
-                        <div class="stat-label">Actions réalisées</div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="stat-item fade-in">
-                        <div class="stat-number">5000+</div>
-                        <div class="stat-label">Bénévoles engagés</div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="stat-item fade-in">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Partenaires institutionnels</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section améliorée -->
-    <section id="about" class="about-section bg-light section">
-        <div class="container">
-            <div class="section-header text-center mb-5">
-                <h2 class="section-title fade-in">Qui sommes-nous ?</h2>
-                <p class="section-subtitle fade-in">L'ONG BENIN VILLES PROPRES œuvre pour l'assainissement et la propreté des villes du Bénin</p>
-            </div>
-            <div class="row g-5">
+            <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <div class="about-card fade-in">
-                        <div class="row g-0">
-                            <div class="col-md-6">
-                                <img src="assets/img/president.jpeg" alt="About" class="about-img w-100">
-                            </div>
-                            <div class="col-md-6">
-                                <div class="about-content">
-                                    <h3>Notre mission</h3>
-                                    <p class="mb-4">Contribuer de manière particulière de par nos projets au développement durable du Bénin.</p>
-                                    
-                                    <h3>Nos objectifs</h3>
-                                    <ul class="ps-3">
-                                        <li class="mb-2">Définir les voies et moyens pour assainir le cadre de vie des populations</li>
-                                        <li class="mb-2">Élaborer et exécuter des projets innovants dans le domaine de l'assainissement</li>
-                                        <li class="mb-2">Sensibiliser et éduquer les populations dans la gestion et l'assainissement</li>
-                                        <li>Améliorer l'image du Bénin vis-à-vis des partenaires au développement</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="section-header mb-5">
+                        <h2 class="section-title fade-in">Qui sommes-nous ?</h2>
                     </div>
+                    <p class="fade-in">L'ONG Afrique Continent Propre (ACP) œuvre pour l'assainissement et la propreté des villes dans plusieurs pays africains en poursuivant divers objectifs :</p>
+                    <ul class="fade-in">
+                        <li>Assainir et maintenir la propreté dans les différentes villes des pays africains</li>
+                        <li>Former une génération de citoyens soucieux de préserver leur environnement</li>
+                        <li>Responsabiliser la population concernée à l'amélioration de son environnement</li>
+                        <li>Contribuer aux œuvres d'assainissement initiés par les gouvernements africains</li>
+                    </ul>
                 </div>
-                <div class="col-lg-6">
-                    <div class="about-card fade-in">
-                        <div class="about-content">
-                            <div class="mission-item">
-                                <div class="mission-icon">
-                                    <i class="fas fa-leaf"></i>
-                                </div>
-                                <div>
-                                    <h4>Engagement environnemental</h4>
-                                    <p>Nous nous engageons à créer un environnement urbain sain et durable pour les générations futures.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="mission-item">
-                                <div class="mission-icon">
-                                    <i class="fas fa-hands-helping"></i>
-                                </div>
-                                <div>
-                                    <h4>Partenariats stratégiques</h4>
-                                    <p>Collaboration avec les institutions publiques et privées pour maximiser notre impact.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="mission-item">
-                                <div class="mission-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div>
-                                    <h4>Mobilisation citoyenne</h4>
-                                    <p>Impliquer les communautés locales dans nos initiatives pour un changement durable.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="mission-item">
-                                <div class="mission-icon">
-                                    <i class="fas fa-lightbulb"></i>
-                                </div>
-                                <div>
-                                    <h4>Innovation urbaine</h4>
-                                    <p>Développement de solutions innovantes pour les défis de l'assainissement urbain.</p>
-                                </div>
+                <div class="col-lg-6 fade-in">
+                    <div class="africa-map">
+                        <div class="africa-overlay">
+                            <div>
+                                <h2>Notre vision panafricaine</h2>
+                                <p>Nous œuvrons pour un continent africain où chaque ville est propre, saine et durable, grâce à l'engagement citoyen et des solutions innovantes.</p>
                             </div>
                         </div>
                     </div>
@@ -1267,81 +1170,257 @@
         </div>
     </section>
 
-    <!-- Achievements Section améliorée -->
-   <section id="achievements" class="py-5 section">
-    <div class="container">
-        <div class="section-header text-center mb-5">
-            <h2 class="section-title fade-in">Nos réalisations</h2>
-            <p class="section-subtitle fade-in">Des actions concrètes pour des villes plus propres</p>
-        </div>
-        <div class="row g-4">
-            <!-- Réalisation 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="achievement-card fade-in">
-                    <div class="position-relative">
-                        <img src="assets/img/2.jpg" alt="Concours" class="achievement-img w-100">
-                        <span class="achievement-badge">Concours</span>
-                    </div>
-                    <div class="achievement-content">
-                        <h4>Concours "Abomey Calavi Ville Propre"</h4>
-                        <p class="text-muted">Du 20 Juin au 09 Août 2025</p>
-                        <p>Mobilisation des habitants d’Abomey-Calavi autour d’un défi écologique pour réduire les déchets et améliorer l’hygiène publique.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Réalisation 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="achievement-card fade-in">
-                    <div class="position-relative">
-                        <img src="assets/img/BVP - 24 août 2024 - 35@460783048.jpg" alt="Nettoyage" class="achievement-img w-100">
-                        <span class="achievement-badge">Activité de nettoyage</span>
-                    </div>
-                    <div class="achievement-content">
-                        <h4>Nettoyage de la plage de la corniche – Akpakpa Dodomey</h4>
-                        <p class="text-muted">Décembre 2024</p>
-                        <p>Opération de dépollution de la plage visant à protéger l’écosystème marin et offrir un espace plus sain aux riverains et visiteurs.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Réalisation 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="achievement-card fade-in">
-                    <div class="position-relative">
-                        <img src="assets/img/BVP - 24 août 2024 - 25@432153897.jpg" alt="Concours" class="achievement-img w-100">
-                        <span class="achievement-badge">Concours</span>
-                    </div>
-                    <div class="achievement-content">
-                        <h4>Concours "Cotonou Ville Propre"</h4>
-                        <p class="text-muted">Du 24 Août au 21 Septembre 2024</p>
-                        <p>Initiative citoyenne incluant une marche verte avec le Lions Club et l’installation de poubelles pour encourager la propreté durable.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="text-center mt-5 fade-in">
-            <a href="#" class="btn btn-outline-primary btn-lg">Voir toutes nos réalisations</a>
-        </div>
-    </div>
-</section>
-
-
-    <!-- Projects Section améliorée -->
-    <section id="projects" class="py-5 bg-light section">
+    <!-- Section Missions -->
+    <section id="mission" class="py-5 bg-light section">
         <div class="container">
             <div class="section-header text-center mb-5">
-                <h2 class="section-title fade-in">Nos projets en perspective</h2>
-                <p class="section-subtitle fade-in">Nos ambitions pour un Bénin plus propre</p>
+                <h2 class="section-title fade-in">Nos Missions</h2>
+                <p class="section-subtitle fade-in">Engagés pour un environnement urbain durable</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-4 fade-in">
                     <div class="project-card">
                         <div class="project-icon">
-                            <i class="fas fa-trash-alt"></i>
+                            <i class="fas fa-road"></i>
                         </div>
-                        <h4>Installation de 1000 poubelles</h4>
-                        <p>Dans chaque commune du Bénin pour améliorer la gestion des déchets et l'hygiène urbaine.</p>
+                        <h4>Définir les voies et moyens</h4>
+                        <p>Pour assainir le cadre de vie des populations africaines.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 fade-in">
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Élaborer des projets innovants</h4>
+                        <p>Dans le domaine de l'assainissement et de la propreté urbaine.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 fade-in">
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Sensibiliser et éduquer</h4>
+                        <p>Les populations dans la gestion et l'assainissement durable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Équipe Panafricaine -->
+    <section class="py-5 section">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title fade-in">Notre Équipe Panafricaine</h2>
+                <p class="section-subtitle fade-in">Les leaders engagés pour une Afrique propre</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 fade-in">
+                    <div class="team-card">
+                        <div class="row g-0">
+                            <div class="col-md-5">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974" alt="Yves Zogbo" class="team-img w-100" style="height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="team-content">
+                                    <h5 class="mb-1">Yves Zogbo</h5>
+                                    <div class="team-position">Président</div>
+                                    <p class="mt-3">Spécialiste en stratégie de communication, président du Conseil économique, Social et Environnemental du Haut-Sassandra, et porte-flambeau de la Fondation Sounidité Karan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 fade-in">
+                    <div class="team-card">
+                        <div class="row g-0">
+                            <div class="col-md-5">
+                                <img src="assets/img/president.jpeg" alt="Alain Adjibade" class="team-img w-100" style="height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="team-content">
+                                    <h5 class="mb-1">Alain Adjibade</h5>
+                                    <div class="team-position">Vice-Président</div>
+                                    <p class="mt-3">Président d'Acajou Group International et de l'ONG Bénin Villas Propres. Il a initié des projets comme le concours "Cotonou Ville Propre".</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 fade-in">
+                    <div class="team-card">
+                        <div class="row g-0">
+                            <div class="col-md-5">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961" alt="Neme Sonia Gnassingbe" class="team-img w-100" style="height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="team-content">
+                                    <h5 class="mb-1">Neme Sonia Gnassingbe</h5>
+                                    <div class="team-position">2ème Vice-Présidente</div>
+                                    <p class="mt-3">Militante environnementale, présidente de l'ONG Togo Environnement Propre et ministrice de la Brigade de Veille Environnementale (BVE).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 fade-in">
+                    <div class="team-card">
+                        <div class="row g-0">
+                            <div class="col-md-5">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976" alt="Adrienne Soundélé" class="team-img w-100" style="height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="team-content">
+                                    <h5 class="mb-1">Adrienne Soundélé</h5>
+                                    <div class="team-position">Secrétaire Générale</div>
+                                    <p class="mt-3">Militante ivoirienne engagée dans le reboisement et la conservation de la biodiversité, à travers sa fondation Soundélé Karan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Réalisations & Distinctions -->
+   <section class="py-5 bg-light section">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title fade-in">Réalisations & Distinctions</h2>
+            <p class="section-subtitle fade-in">Nos actions et reconnaissances à travers l'Afrique</p>
+        </div>
+        
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-content fade-in">
+                    <h4>Porte-flambeau de la protection des forêts</h4>
+                    <p>Yves Junior ZOGBO au sein de la Fondation SOUNDELE, Juillet 2013</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content fade-in">
+                    <h4>1er Prix d'excellence de la Nation</h4>
+                    <p>Dans le domaine du reboisement en Côte-d'Ivoire, 2015</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content fade-in">
+                    <h4>Activités d’agroforesterie, reboisement et éducation</h4>
+                    <p>Multiples actions de terrain en faveur de l’environnement</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content fade-in">
+                    <h4>Partenariat pour la préservation de la faune et de la flore</h4>
+                    <p>Fondation SOUNDELE Konan & Roots Wild Foundation, Côte d’Ivoire, 15 Octobre 2024</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content fade-in">
+                    <h4>Distinction internationale à Bogota</h4>
+                    <p>Fondation SOUNDELE Konan honorée à Bogota (Colombie), Novembre 2022</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content fade-in">
+                    <h4>Prix Africain du Mérite et de l’Excellence</h4>
+                    <p>Décerné lors du PADEV à Kigali, Septembre 2021</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content fade-in">
+                    <h4>Sensibilisation environnementale au Togo</h4>
+                    <p>Thématiques liées à la salubrité publique et la protection de l’environnement, Décembre 2022</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content fade-in">
+                    <h4>Certificat de reconnaissance</h4>
+                    <p>Impact social de l’ONG Bénin Ville Propre sur la communauté béninoise, décerné par le CISA, 29 Mars 2025</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content fade-in">
+                    <h4>Trophée d’Honneur</h4>
+                    <p>Engagement pour l’assainissement urbain et un cadre de vie sain, Abidjan, 15 Février 2025</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content fade-in">
+                    <h4>Projet forêt urbaine</h4>
+                    <p>Classé 2ème meilleur projet par le Ministère du Cadre de Vie et des Transports, 12 Octobre 2024</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content fade-in">
+                    <h4>Concours "Cotonou Ville Propre"</h4>
+                    <p>Organisation du concours du 24 Août au 21 Septembre 2024</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content fade-in">
+                    <h4>Activité de salubrité et mise en terre</h4>
+                    <p>EPP HLAZOUNTO avec Wendie Renard, Juin 2024</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content fade-in">
+                    <h4>Don de dispositifs de lavage de main</h4>
+                    <p>60 dispositifs offerts avec le Maire de Ouidah, 11 Juillet 2020</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- Projets en perspectives -->
+    <section class="py-5 section">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title fade-in">Projets en Perspectives</h2>
+                <p class="section-subtitle fade-in">Nos ambitions pour une Afrique plus propre</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 fade-in">
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <h4>Élargissement du Projet Ville Propre</h4>
+                        <p>Dans d'autres pays africains pour une mobilisation continentale.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 fade-in">
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <h4>Projet "Balaké Ville Propre"</h4>
+                        <p>Nouveau projet de propreté urbaine en Côte d'Ivoire.</p>
                     </div>
                 </div>
                 
@@ -1351,180 +1430,64 @@
                             <i class="fas fa-tree"></i>
                         </div>
                         <h4>Forêts urbaines</h4>
-                        <p>Création d'espaces verts en milieu urbain pour améliorer la qualité de l'air et le cadre de vie.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 fade-in">
-                    <div class="project-card">
-                        <div class="project-icon">
-                            <i class="fas fa-expand-arrows-alt"></i>
-                        </div>
-                        <h4>Élargissement du concours</h4>
-                        <p>Extension du concours "Ville Propre" à toutes les communes du Bénin pour une mobilisation nationale.</p>
+                        <p>Installation dans plusieurs pays africains pour améliorer la qualité de l'air.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Afrique Continent Propre Section -->
-<section id="afrique-propre" class="py-5 bg-white section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-5 mb-lg-0 fade-in">
-                <img src="assets/img/continent-propre.jpg" alt="Afrique Continent Propre" class="img-fluid rounded shadow" style="border: 5px solid var(--primary-light);">
-            </div>
-            <div class="col-lg-6 fade-in">
-                <div class="ps-lg-5">
-                    <h2 class="section-title mb-4">AFRIQUE CONTINENT PROPRE</h2>
-                    <p class="lead mb-4">
-                        Une initiative panafricaine pour étendre notre vision de propreté à l'échelle continentale.
-                    </p>
-                    <p class="mb-4">
-                        AFRIQUE CONTINENT PROPRE est notre nouveau programme ambitieux visant à créer un réseau de villes propres à travers toute l'Afrique. Cette initiative repose sur le partage d'expertise, la création de standards communs et la mobilisation transnationale pour un environnement urbain durable.
-                    </p>
-                    <div class="d-flex flex-wrap gap-3 mb-4">
-                        <span class="badge bg-primary py-2 px-3">Échange de bonnes pratiques</span>
-                        <span class="badge bg-primary py-2 px-3">Formations transfrontalières</span>
-                        <span class="badge bg-primary py-2 px-3">Concours panafricain</span>
-                    </div>
-                    <a href="afriquectn.html" class="btn btn-primary btn-lg px-5 py-3">
-                        <i class="fas fa-globe-africa me-2"></i> Découvrir l'initiative
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Team Section améliorée -->
-    <section id="team" class="py-5 section">
+    <!-- Pays impliqués -->
+    <section class="py-5 bg-light section">
         <div class="container">
             <div class="section-header text-center mb-5">
-                <h2 class="section-title fade-in">Notre équipe</h2>
-                <p class="section-subtitle fade-in">Les passionnés qui font la différence</p>
+                <h2 class="section-title fade-in">Pays Impliqués</h2>
+                <p class="section-subtitle fade-in">Notre action s'étend à travers tout le continent</p>
             </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3 fade-in">
-                    <div class="team-card">
-                        <img src="assets/img/president.jpeg" alt="Alain ADJIBADE" class="team-img w-100">
-                        <div class="team-content">
-                            <h5 class="mb-1">Alain ADJIBADE</h5>
-                            <div class="team-position">Président</div>
-                            <div>
-                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                            </div>
+            <div class="row">
+                <div class="col-md-6 fade-in">
+                    <div class="country-item">
+                        <img src="https://flagcdn.com/w40/ci.png" alt="Côte d'Ivoire" class="country-flag">
+                        <div>
+                            <div class="country-name">Côte d'Ivoire</div>
+                            <p>Projets de reboisement et de propreté urbaine</p>
+                        </div>
+                    </div>
+                    <div class="country-item">
+                        <img src="https://flagcdn.com/w40/bj.png" alt="Bénin" class="country-flag">
+                        <div>
+                            <div class="country-name">Bénin</div>
+                            <p>Concours "Cotonou Ville Propre" et initiatives d'assainissement</p>
+                        </div>
+                    </div>
+                    <div class="country-item">
+                        <img src="https://flagcdn.com/w40/tg.png" alt="Togo" class="country-flag">
+                        <div>
+                            <div class="country-name">Togo</div>
+                            <p>Sensibilisation contre les plastiques non biodégradables</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-md-6 col-lg-3 fade-in">
-                    <div class="team-card">
-                        <img src="assets/img/vp.jpeg" alt="Brice Alexandre AZAR" class="team-img w-100">
-                        <div class="team-content">
-                            <h5 class="mb-1">Brice Alexandre AZAR</h5>
-                            <div class="team-position">Vice Président</div>
-                            <div>
-                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                            </div>
+                <div class="col-md-6 fade-in">
+                    <div class="country-item">
+                        <img src="https://flagcdn.com/w40/sn.png" alt="Sénégal" class="country-flag">
+                        <div>
+                            <div class="country-name">Sénégal</div>
+                            <p>Programmes de gestion des déchets et assainissement</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-3 fade-in">
-                    <div class="team-card">
-                        <img src="assets/img/kadirath.jpeg" alt="Kadirath-lah AHLIN" class="team-img w-100">
-                        <div class="team-content">
-                            <h5 class="mb-1">Kadirath-lah AHLIN</h5>
-                            <div class="team-position">Coordonnatrice</div>
-                            <div>
-                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                            </div>
+                    <div class="country-item">
+                        <img src="https://flagcdn.com/w40/ga.png" alt="Gabon" class="country-flag">
+                        <div>
+                            <div class="country-name">Gabon</div>
+                            <p>Conservation de la biodiversité et éducation environnementale</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-3 fade-in">
-                    <div class="team-card">
-                        <img src="assets/img/Daris.jpg" alt="Daris GBAGUIDI" class="team-img w-100">
-                        <div class="team-content">
-                            <h5 class="mb-1">Daris GBAGUIDI</h5>
-                            <div class="team-position">Formations et partenariat</div>
-                            <div>
-                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container mt-5">
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3 fade-in">
-                        <div class="team-card">
-                            <img src="assets/img/fructueux.jpeg" alt="Alain ADJIBADE" class="team-img w-100">
-                            <div class="team-content">
-                                <h5 class="mb-1">Fructueux ABOH</h5>
-                                <div class="team-position">Chargé de la communication et trésorier</div>
-                                <div>
-                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-lg-3 fade-in">
-                        <div class="team-card">
-                            <img src="assets/img/yolande.jpeg" alt="Brice Alexandre AZAR" class="team-img w-100">
-                            <div class="team-content">
-                                <h5 class="mb-1">Yolande KPADONOUR</h5>
-                                <div class="team-position">Sécrétaire générale</div>
-                                <div>
-                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-lg-3 fade-in">
-                        <div class="team-card">
-                            <img src="assets/img/bryan.jpeg" alt="Kadirath-lah AHLIN" class="team-img w-100">
-                            <div class="team-content">
-                                <h5 class="mb-1">Brayan LOKO</h5>
-                                <div class="team-position">Community manager</div>
-                                <div>
-                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-lg-3 fade-in">
-                        <div class="team-card">
-                            <img src="assets/img/christabelle.jpeg" alt="Daris GBAGUIDI" class="team-img w-100">
-                            <div class="team-content">
-                                <h5 class="mb-1">Christabelle ASSOGBA</h5>
-                                <div class="team-position">Sécrétaire adjointe</div>
-                                <div>
-                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                                </div>
-                            </div>
+                    <div class="country-item">
+                        <img src="https://flagcdn.com/w40/rw.png" alt="Rwanda" class="country-flag">
+                        <div>
+                            <div class="country-name">Rwanda</div>
+                            <p>Modèle de propreté urbaine et gestion des déchets</p>
                         </div>
                     </div>
                 </div>
@@ -1532,104 +1495,14 @@
         </div>
     </section>
 
-    <!-- Partners Section améliorée -->
-  <section class="partner-section section">
-        <div class="container">
-            <div class="section-header text-center mb-5">
-                <h2 class="section-title fade-in">Nos partenaires</h2>
-                <p class="section-subtitle fade-in">Ensemble pour un Bénin plus propre</p>
-            </div>
-            
-            <div class="partner-container fade-in">
-                <!-- Filigranes décoratifs -->
-                <div class="watermark watermark-top">PARTENAIRES</div>
-                <div class="watermark watermark-bottom">COLLABORATION</div>
-                
-                <!-- Image unique des partenaires -->
-                <img src="assets/img/partener.jpeg" 
-                     alt="Tous nos partenaires" 
-                     class="partner-image">
-                
-                <p class="partner-caption fade-in">Nos précieux partenaires qui soutiennent notre mission pour un Bénin plus propre</p>
-                
-                <div class="partner-description fade-in">
-                    <p>Nous sommes fiers de collaborer avec ces organisations engagées qui partagent notre vision d'un environnement urbain propre et sain. Leur soutien nous permet de mener à bien nos projets d'assainissement et de sensibilisation à travers tout le Bénin.</p>
-                    <p>Ensemble, nous travaillons à transformer nos villes et à créer un impact durable pour les générations futures.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- News Section améliorée -->
-    <section id="news" class="py-5 bg-light section">
-        <div class="container">
-            <div class="section-header text-center mb-5">
-                <h2 class="section-title fade-in">Dernières actualités</h2>
-                <p class="section-subtitle fade-in">Suivez nos dernières activités et événements</p>
-            </div>
-            <div class="row g-4">
-                    <div class="col-md-6 col-lg-4 fade-in">
-                    <div class="news-card">
-                        <div class="position-relative">
-                            <img src="assets/img/cisa.jpeg" alt="1ère descente" class="news-img w-100">
-                            <div class="news-date">Mars 2025</div>
-                        </div>
-                        <div class="news-content">
-                            <span class="news-badge">Reconnaissance</span>
-                            <h4>Certificat de reconnaissance pour l’impact social des actions de l’ONG Bénin Ville propre sur la communauté béninoise décerné par le cisa</h4>
-                            <p>Les activités du concours officiellement lancées avec une forte mobilisation citoyenne...</p>
-                            <a href="#" class="btn btn-sm btn-outline-primary mt-2">Lire la suite</a>
-                        </div>
-                    </div>
-                </div>
-              
-                
-                <div class="col-md-6 col-lg-4 fade-in">
-                    <div class="news-card">
-                        <div class="position-relative">
-                            <img src="assets/img/reconnaissance.JPG" alt="3ème descente" class="news-img w-100">
-                            <div class="news-date">Février 2025</div>
-                        </div>
-                        <div class="news-content">
-                            <span class="news-badge">Trophée</span>
-                            <h4>Trophée d’Honneur pour notre engagement en faveur de l’assainissement urbain et de la promotion d’un cadre de vie sain</h4>
-                            <p>Vers la dernière ligne droite du concours citoyen avec une mobilisation croissante...</p>
-                            <a href="#" class="btn btn-sm btn-outline-primary mt-2">Lire la suite</a>
-                        </div>
-                    </div>
-                </div>
-
-                  
-                <div class="col-md-6 col-lg-4 fade-in">
-                    <div class="news-card">
-                        <div class="position-relative">
-                            <img src="assets/img/4.jpeg" alt="1ère descente" class="news-img w-100">
-                            <div class="news-date">Octobre 2024</div>
-                        </div>
-                        <div class="news-content">
-                            <span class="news-badge">2ème meilleur projet</span>
-                            <h4>Projet forêt urbaine primé 2ème meilleur projet par le Ministère du Cadre de Vie et des Transports lors du gala du FIC 2024</h4>
-                            <p>Les activités du concours officiellement lancées avec une forte mobilisation citoyenne...</p>
-                            <a href="#" class="btn btn-sm btn-outline-primary mt-2">Lire la suite</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5 fade-in">
-                <a href="#" class="btn btn-primary btn-lg">Voir toutes les actualités</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section améliorée -->
+    <!-- CTA Section -->
     <section id="contact" class="py-5 section">
         <div class="container">
             <div class="cta-section">
                 <div class="row g-0">
                     <div class="col-lg-8 cta-content">
-                        <h2 class="mb-4">Prêt à nous soutenir ?</h2>
-                        <p class="mb-5">Rejoignez notre mission pour un Bénin plus propre et plus sain. Que vous soyez un particulier, une entreprise ou une institution, votre soutien fait la différence.</p>
+                        <h2 class="mb-4">Rejoignez notre mouvement panafricain</h2>
+                        <p class="mb-5">Ensemble, construisons un avenir plus propre et plus durable pour notre continent. Votre soutien fait la différence.</p>
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <div class="d-flex align-items-center">
@@ -1638,7 +1511,7 @@
                                     </div>
                                     <div>
                                         <h5 class="mb-0">Téléphone</h5>
-                                        <p class="mb-0">+229 96614562 / 44494444</p>
+                                        <p class="mb-0">+225 0584167777</p>
                                     </div>
                                 </div>
                             </div>
@@ -1649,18 +1522,7 @@
                                     </div>
                                     <div>
                                         <h5 class="mb-0">Email</h5>
-                                        <p class="mb-0">bvpinfosservice@gmail.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="me-3">
-                                        <i class="fab fa-whatsapp fa-2x"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="mb-0">WhatsApp</h5>
-                                        <p class="mb-0">+229 53694646</p>
+                                        <p class="mb-0">africontinentpropre@gmail.com</p>
                                     </div>
                                 </div>
                             </div>
@@ -1696,8 +1558,8 @@
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-4">
-                    <img src="assets/img/logo.jpg" alt="Bénin Villes Propres" class="mb-4" height="100px" width="150px">
-                    <p class="mb-4" style="color: white;">Bénin Villes Propres (BVP) est une ONG engagée dans la promotion de la propreté urbaine et de l'assainissement au Bénin.</p>
+                    <img src="assets/img/logo.jpg" alt="Afrique Continent Propre" class="mb-4" height="100px" width="150px">
+                    <p class="mb-4" style="color: white;">Afrique Continent Propre (ACP) est une ONG panafricaine engagée dans la promotion de la propreté urbaine et de l'assainissement à travers tout le continent.</p>
                     <div>
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
@@ -1710,11 +1572,11 @@
                 <div class="col-lg-2 col-md-4">
                     <h5 class="footer-title">Navigation</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a href="#" class="nav-link">Accueil</a></li>
-                        <li class="nav-item"><a href="#about" class="nav-link">À propos</a></li>
-                        <li class="nav-item"><a href="#achievements" class="nav-link">Réalisations</a></li>
-                        <li class="nav-item"><a href="#projects" class="nav-link">Projets</a></li>
-                        <li class="nav-item"><a href="#news" class="nav-link">Actualités</a></li>
+                        <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+                        <li class="nav-item"><a href="#mission" class="nav-link">Notre mission</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Réalisations</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Projets</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Équipe</a></li>
                         <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                     </ul>
                 </div>
@@ -1726,17 +1588,15 @@
                         <li class="nav-item"><a href="#" class="nav-link">Faire un don</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Devenir partenaire</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Politique de confidentialité</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Mentions légales</a></li>
                     </ul>
                 </div>
                 
                 <div class="col-lg-3 col-md-4">
                     <h5 class="footer-title">Contact</h5>
                     <ul class="nav flex-column footer-contact">
-                        <li class="mb-3"><i class="fas fa-map-marker-alt me-2"></i> Quartier GBETO carré, 250 Maison AHOZIN</li>
-                        <li class="mb-3"><i class="fas fa-phone-alt me-2"></i> +229 96614562 / 44494444</li>
-                        <li class="mb-3"><i class="fas fa-envelope me-2"></i> bvpinfosservice@gmail.com</li>
-                        <li><i class="fab fa-whatsapp me-2"></i> +229 53694646</li>
+                        <li class="mb-3"><i class="fas fa-map-marker-alt me-2"></i> Siège social: Abidjan, Côte d'Ivoire</li>
+                        <li class="mb-3"><i class="fas fa-phone-alt me-2"></i> +225 0584167777</li>
+                        <li class="mb-3"><i class="fas fa-envelope me-2"></i> africontinentpropre@gmail.com</li>
                     </ul>
                 </div>
             </div>
@@ -1744,7 +1604,7 @@
             <hr class="my-5 border-light">
             
             <div class="text-center py-4">
-                <p class="mb-0">&copy; 2025 Bénin Villes Propres. Tous droits réservés. <span class="d-block d-md-inline mt-2 mt-md-0">"Une ville propre, des vies sauvées"</span></p>
+                <p class="mb-0">&copy; 2025 Afrique Continent Propre. Tous droits réservés. <span class="d-block d-md-inline mt-2 mt-md-0">"Une Afrique propre, des vies sauvées"</span></p>
             </div>
         </div>
     </footer>
@@ -1755,7 +1615,7 @@
     </a>
 
     <!-- WhatsApp button amélioré -->
-    <a href="https://wa.me/22953694646" class="whatsapp-btn" target="_blank">
+    <a href="https://wa.me/2250584167777" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1785,13 +1645,6 @@
         backToTopButton.addEventListener('click', (e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        
-        // Auto-advance carousel every 5 seconds
-        const myCarousel = document.getElementById('heroCarousel');
-        const carousel = new bootstrap.Carousel(myCarousel, {
-            interval: 5000,
-            wrap: true
         });
 
         // Scroll animations
@@ -1827,45 +1680,5 @@
             });
         });
     </script>
-
-    <!-- Modal Faire un don -->
-<div class="modal fade" id="donModal" tabindex="-1" aria-labelledby="donModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content" style="border-radius: 15px; overflow: hidden;">
-      <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title" id="donModalLabel"><i class="fas fa-hand-holding-heart me-2"></i> Faire un don</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
-      </div>
-      <div class="modal-body p-4">
-        <p class="mb-4 text-center">Votre soutien nous aide à maintenir nos actions pour un Bénin plus propre 🌍💚</p>
-
-        <div class="row g-4">
-          <div class="col-md-6">
-            <h6 class="fw-bold text-primary"><i class="fas fa-mobile-alt me-2"></i> Mobile Money</h6>
-            <ul class="list-group">
-              <li class="list-group-item"><strong>MTN :</strong> +229 0153 69 46 46</li>
-            </ul>
-          </div>
-
-          <div class="col-md-6">
-            <h6 class="fw-bold text-primary"><i class="fas fa-university me-2"></i> Coordonnées bancaires</h6>
-            <ul class="list-group">
-              <li class="list-group-item"><strong>Banque :</strong></li>
-              <li class="list-group-item"><strong>N°compte BSIC :</strong> 00300235931</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="mt-4 text-center">
-          <p class="small text-muted">Merci de préciser en référence : <strong>"Don Bénin Villes Propres"</strong></p>
-        </div>
-      </div>
-      <div class="modal-footer bg-light">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>
