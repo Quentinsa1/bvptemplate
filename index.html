@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bénin Villes Propres | Une ville propre, des vies sauvées</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Variables CSS améliorées */
+        :root {
+            --primary-color: #2E8B57; /* Vert principal */
+            --primary-dark: #1F6B3D;
+            --primary-light: #3CB371;
+            --secondary-color: #4682B4; /* Bleu secondaire */
+            --secondary-dark: #2A4E6E;
+            --secondary-light: #5F9EA0;
+            --white: #FFFFFF;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6C757D;
+            --gray-light: #E9ECEF;
+            --gold: #D4AF37;
+            --silver: #C0C0C0;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.12);
+            --border-radius: 10px;
+        }
+
+        /* Base Styles améliorés */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: #fafafa;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h1 {
+            font-weight: 800;
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn {
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+            border: none;
+            font-size: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline-light {
+            border: 2px solid var(--white);
+            background: transparent;
+        }
+
+        .btn-outline-light:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .bg-primary {
+            background-color: var(--primary-color) !important;
+        }
+
+        .text-primary {
+            color: var(--primary-color) !important;
+        }
+
+        .bg-light {
+            background-color: var(--light) !important;
+        }
+
+        /* Navigation améliorée */
+        .navbar {
+            padding: 20px 0;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            background: #FFFFFF !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .navbar-brand img {
+            transition: all 0.4s ease;
+            height: 70px;
+        }
+
+        .navbar.scrolled .navbar-brand img {
+            height: 50px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 1.2rem !important;
+            position: relative;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1.2rem;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: calc(100% - 2.4rem);
+        }
+
+        /* Hero Section améliorée */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            overflow: hidden;
+        }
+
+        .hero-carousel .carousel-item {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+        }
+
+        .hero-carousel .carousel-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.85) 0%, rgba(70, 130, 180, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .hero-carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: 100%;
+            padding: 0 15px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-section h1 {
+            font-weight: 800;
+            line-height: 1.2;
+            font-size: 3.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.92;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .hero-section .btn {
+            font-size: 1.1rem;
+            padding: 0.9rem 2.5rem;
+            margin: 0 12px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Carousel controls améliorés */
+        .carousel-control-prev, .carousel-control-next {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 1;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .carousel-control-prev:hover, .carousel-control-next:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .carousel-control-prev {
+            left: 40px;
+        }
+
+        .carousel-control-next {
+            right: 40px;
+        }
+
+        .carousel-control-prev-icon, 
+        .carousel-control-next-icon {
+            width: 1.8rem;
+            height: 1.8rem;
+        }
+
+        .carousel-indicators {
+            bottom: 40px;
+        }
+
+        .carousel-indicators button {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            margin: 0 10px;
+            border: 2px solid transparent;
+            background-color: rgba(255,255,255,0.5);
+            transition: var(--transition);
+        }
+
+        .carousel-indicators .active {
+            background-color: var(--white);
+            transform: scale(1.2);
+            border-color: var(--primary-light);
+        }
+
+        /* Section Titles améliorés */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            margin-bottom: 70px;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.8rem;
+            font-weight: 800;
+            font-size: 2.8rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Stats Section améliorée */
+        .stat-item {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            padding: 35px 25px;
+            text-align: center;
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-number {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 1.15rem;
+            color: var(--secondary-dark);
+            font-weight: 500;
+        }
+
+        /* About Section améliorée */
+        .about-section {
+            padding: 120px 0;
+        }
+
+        .about-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .about-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .about-img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content {
+            padding: 40px;
+        }
+
+        .about-content h3 {
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .about-content h3:after {
+            content: '';
+            position: absolute;
+            height: 3px;
+            width: 60px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            border-radius: 10px;
+        }
+
+        .mission-item {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+
+        .mission-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(46, 139, 87, 0.08);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 25px;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .mission-item:hover .mission-icon {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Achievements Section améliorée */
+        .achievement-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .achievement-img {
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .achievement-card:hover .achievement-img {
+            transform: scale(1.05);
+        }
+
+        .achievement-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .achievement-content {
+            padding: 30px;
+        }
+
+        /* Projects Section améliorée */
+        .project-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 35px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-icon {
+            width: 90px;
+            height: 90px;
+            background: rgba(46, 139, 87, 0.08);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-icon {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-10px);
+        }
+
+        /* Team Section améliorée */
+        .team-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .team-img {
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .team-card:hover .team-img {
+            transform: scale(1.05);
+        }
+
+        .team-content {
+            padding: 30px 25px;
+            text-align: center;
+        }
+
+        .team-position {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .social-link {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(46, 139, 87, 0.08);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 6px;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Partners Section améliorée */
+        .partner-section {
+            background: linear-gradient(to right, rgba(46, 139, 87, 0.05), rgba(70, 130, 180, 0.05));
+            padding: 120px 0;
+        }
+
+        .partner-logo {
+            height: 90px;
+            margin: 25px;
+            opacity: 0.7;
+            transition: var(--transition);
+            filter: grayscale(100%);
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .partner-logo:hover {
+            opacity: 1;
+            transform: translateY(-10px);
+            filter: grayscale(0%);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* News Section améliorée */
+        .news-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .news-img {
+            height: 260px;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .news-card:hover .news-img {
+            transform: scale(1.05);
+        }
+
+        .news-date {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .news-content {
+            padding: 30px;
+        }
+
+        .news-badge {
+            background: rgba(46, 139, 87, 0.08);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        /* CTA Section améliorée */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cta-content {
+            padding: 70px;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .contact-info h3 {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-info h3:after {
+            content: '';
+            position: absolute;
+            height: 3px;
+            width: 60px;
+            background: white;
+            bottom: 0;
+            left: 0;
+            border-radius: 10px;
+        }
+
+        .form-control {
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: var(--transition);
+            margin-bottom: 20px;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 0.25rem rgba(46, 139, 87, 0.25);
+            border-color: var(--primary-color);
+        }
+
+        /* Footer amélioré */
+        .footer {
+            background: #1a1f25;
+            color: rgba(255,255,255,0.7);
+            padding-top: 100px;
+            position: relative;
+        }
+
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .footer-title {
+            color: white;
+            position: relative;
+            padding-bottom: 18px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            height: 3px;
+            width: 60px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            border-radius: 10px;
+        }
+
+        .footer .nav-link {
+            padding: 8px 0;
+            color: rgba(255,255,255,0.7);
+            position: relative;
+            display: inline-block;
+            font-weight: 300;
+        }
+
+        .footer .nav-link:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer .nav-link:before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            transition: var(--transition);
+            color: var(--primary-color);
+        }
+
+        .footer .nav-link:hover:before {
+            opacity: 1;
+            left: -15px;
+        }
+
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-contact i {
+            color: var(--primary-color);
+            margin-right: 15px;
+            margin-top: 5px;
+            font-size: 1.1rem;
+        }
+
+        /* Back to top button amélioré */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        /* WhatsApp button amélioré */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            z-index: 1000;
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Effets et animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1199px) {
+            .hero-section h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-section h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .cta-content {
+                padding: 50px;
+            }
+            
+            .hero-content {
+                padding-top: 70px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .carousel-control-prev, .carousel-control-next {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .carousel-control-prev {
+                left: 20px;
+            }
+            
+            .carousel-control-next {
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-section h1 {
+                font-size: 2.1rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .hero-section .btn {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto 15px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+         .partner-section {
+            background: linear-gradient(to right, rgba(46, 139, 87, 0.05), rgba(70, 130, 180, 0.05));
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .partner-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .partner-container:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .partner-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .partner-image:hover {
+            transform: scale(1.02);
+        }
+
+        .partner-description {
+            max-width: 800px;
+            margin: 30px auto 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .watermark {
+            position: absolute;
+            font-size: 12rem;
+            font-weight: 800;
+            opacity: 0.03;
+            color: var(--primary-color);
+            z-index: 0;
+            pointer-events: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .watermark-top {
+            top: 20px;
+            right: 50px;
+            transform: rotate(10deg);
+        }
+
+        .watermark-bottom {
+            bottom: 20px;
+            left: 50px;
+            transform: rotate(-10deg);
+        }
+
+        .partner-caption {
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 992px) {
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .watermark {
+                font-size: 8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .partner-container {
+                padding: 20px;
+            }
+            
+            .watermark {
+                font-size: 5rem;
+            }
+            
+            .watermark-top {
+                top: 10px;
+                right: 20px;
+            }
+            
+            .watermark-bottom {
+                bottom: 10px;
+                left: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .partner-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation améliorée -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/logo.jpg" alt="Bénin Villes Propres" height="100" width="100">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#achievements">Réalisations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Équipe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#news">Actualités</a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#donModal">Faire Un Don</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section améliorée -->
+    <section class="hero-section">
+        <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <img src="assets/img/2.jpg" class="d-block w-100" alt="Action de propreté urbaine">
+                    <div class="hero-content">
+                        <h1 class="mb-4">Une ville propre, des vies sauvées</h1>
+                        <p class="hero-subtitle">L'ONG Bénin Villes Propres œuvre pour l'assainissement et la propreté des villes béninoises à travers des actions concrètes et innovantes.</p>
+                        <div class="d-flex flex-wrap justify-content-center hero-buttons">
+                            <a href="#about" class="btn btn-primary btn-lg">Découvrir notre mission</a>
+                            <a href="#contact" class="btn btn-outline-light btn-lg">Nous soutenir</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <img src="assets/img/3.jpeg" class="d-block w-100" alt="Équipe de bénévoles">
+                    <div class="hero-content">
+                        <h1 class="mb-4">Engagement citoyen pour un Bénin propre</h1>
+                        <p class="hero-subtitle">Rejoignez notre communauté de 5000+ bénévoles engagés pour transformer nos villes et préserver notre environnement.</p>
+                        <div class="d-flex flex-wrap justify-content-center hero-buttons">
+                            <a href="#team" class="btn btn-primary btn-lg">Rencontrer notre équipe</a>
+                            <a href="#contact" class="btn btn-outline-light btn-lg">Devenir bénévole</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <img src="assets/img/1.jpeg" class="d-block w-100" alt="Concours de propreté">
+                    <div class="hero-content">
+                        <h1 class="mb-4">Concours "Ville Propre"</h1>
+                        <p class="hero-subtitle">Découvrez notre initiative phare qui récompense les communes les plus propres du Bénin et transforme l'image de nos villes.</p>
+                        <div class="d-flex flex-wrap justify-content-center hero-buttons">
+                            <a href="#achievements" class="btn btn-primary btn-lg">Voir nos réalisations</a>
+                            <a href="#news" class="btn btn-outline-light btn-lg">Dernières actualités</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Précédent</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Suivant</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Stats Section améliorée -->
+    <section class="py-5 section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Communes impactées</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Actions réalisées</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">Bénévoles engagés</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Partenaires institutionnels</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section améliorée -->
+    <section id="about" class="about-section bg-light section">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title fade-in">Qui sommes-nous ?</h2>
+                <p class="section-subtitle fade-in">L'ONG BENIN VILLES PROPRES œuvre pour l'assainissement et la propreté des villes du Bénin</p>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="about-card fade-in">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <img src="assets/img/president.jpeg" alt="About" class="about-img w-100">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about-content">
+                                    <h3>Notre mission</h3>
+                                    <p class="mb-4">Contribuer de manière particulière de par nos projets au développement durable du Bénin.</p>
+                                    
+                                    <h3>Nos objectifs</h3>
+                                    <ul class="ps-3">
+                                        <li class="mb-2">Définir les voies et moyens pour assainir le cadre de vie des populations</li>
+                                        <li class="mb-2">Élaborer et exécuter des projets innovants dans le domaine de l'assainissement</li>
+                                        <li class="mb-2">Sensibiliser et éduquer les populations dans la gestion et l'assainissement</li>
+                                        <li>Améliorer l'image du Bénin vis-à-vis des partenaires au développement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-card fade-in">
+                        <div class="about-content">
+                            <div class="mission-item">
+                                <div class="mission-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div>
+                                    <h4>Engagement environnemental</h4>
+                                    <p>Nous nous engageons à créer un environnement urbain sain et durable pour les générations futures.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mission-item">
+                                <div class="mission-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <div>
+                                    <h4>Partenariats stratégiques</h4>
+                                    <p>Collaboration avec les institutions publiques et privées pour maximiser notre impact.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mission-item">
+                                <div class="mission-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div>
+                                    <h4>Mobilisation citoyenne</h4>
+                                    <p>Impliquer les communautés locales dans nos initiatives pour un changement durable.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mission-item">
+                                <div class="mission-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div>
+                                    <h4>Innovation urbaine</h4>
+                                    <p>Développement de solutions innovantes pour les défis de l'assainissement urbain.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section améliorée -->
+   <section id="achievements" class="py-5 section">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title fade-in">Nos réalisations</h2>
+            <p class="section-subtitle fade-in">Des actions concrètes pour des villes plus propres</p>
+        </div>
+        <div class="row g-4">
+            <!-- Réalisation 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="achievement-card fade-in">
+                    <div class="position-relative">
+                        <img src="assets/img/2.jpg" alt="Concours" class="achievement-img w-100">
+                        <span class="achievement-badge">Concours</span>
+                    </div>
+                    <div class="achievement-content">
+                        <h4>Concours "Abomey Calavi Ville Propre"</h4>
+                        <p class="text-muted">Du 20 Juin au 09 Août 2025</p>
+                        <p>Mobilisation des habitants d’Abomey-Calavi autour d’un défi écologique pour réduire les déchets et améliorer l’hygiène publique.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Réalisation 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="achievement-card fade-in">
+                    <div class="position-relative">
+                        <img src="assets/img/BVP - 24 août 2024 - 35@460783048.jpg" alt="Nettoyage" class="achievement-img w-100">
+                        <span class="achievement-badge">Activité de nettoyage</span>
+                    </div>
+                    <div class="achievement-content">
+                        <h4>Nettoyage de la plage de la corniche – Akpakpa Dodomey</h4>
+                        <p class="text-muted">Décembre 2024</p>
+                        <p>Opération de dépollution de la plage visant à protéger l’écosystème marin et offrir un espace plus sain aux riverains et visiteurs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Réalisation 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="achievement-card fade-in">
+                    <div class="position-relative">
+                        <img src="assets/img/BVP - 24 août 2024 - 25@432153897.jpg" alt="Concours" class="achievement-img w-100">
+                        <span class="achievement-badge">Concours</span>
+                    </div>
+                    <div class="achievement-content">
+                        <h4>Concours "Cotonou Ville Propre"</h4>
+                        <p class="text-muted">Du 24 Août au 21 Septembre 2024</p>
+                        <p>Initiative citoyenne incluant une marche verte avec le Lions Club et l’installation de poubelles pour encourager la propreté durable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5 fade-in">
+            <a href="#" class="btn btn-outline-primary btn-lg">Voir toutes nos réalisations</a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Projects Section améliorée -->
+    <section id="projects" class="py-5 bg-light section">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title fade-in">Nos projets en perspective</h2>
+                <p class="section-subtitle fade-in">Nos ambitions pour un Bénin plus propre</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 fade-in">
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-trash-alt"></i>
+                        </div>
+                        <h4>Installation de 1000 poubelles</h4>
+                        <p>Dans chaque commune du Bénin pour améliorer la gestion des déchets et l'hygiène urbaine.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 fade-in">
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h4>Forêts urbaines</h4>
+                        <p>Création d'espaces verts en milieu urbain pour améliorer la qualité de l'air et le cadre de vie.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 fade-in">
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </div>
+                        <h4>Élargissement du concours</h4>
+                        <p>Extension du concours "Ville Propre" à toutes les communes du Bénin pour une mobilisation nationale.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section améliorée -->
+    <section id="team" class="py-5 section">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title fade-in">Notre équipe</h2>
+                <p class="section-subtitle fade-in">Les passionnés qui font la différence</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="team-card">
+                        <img src="assets/img/president.jpeg" alt="Alain ADJIBADE" class="team-img w-100">
+                        <div class="team-content">
+                            <h5 class="mb-1">Alain ADJIBADE</h5>
+                            <div class="team-position">Président</div>
+                            <div>
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="team-card">
+                        <img src="assets/img/vp.jpeg" alt="Brice Alexandre AZAR" class="team-img w-100">
+                        <div class="team-content">
+                            <h5 class="mb-1">Brice Alexandre AZAR</h5>
+                            <div class="team-position">Vice Président</div>
+                            <div>
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="team-card">
+                        <img src="assets/img/kadirath.jpeg" alt="Kadirath-lah AHLIN" class="team-img w-100">
+                        <div class="team-content">
+                            <h5 class="mb-1">Kadirath-lah AHLIN</h5>
+                            <div class="team-position">Coordonnatrice</div>
+                            <div>
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="team-card">
+                        <img src="assets/img/Daris.jpg" alt="Daris GBAGUIDI" class="team-img w-100">
+                        <div class="team-content">
+                            <h5 class="mb-1">Daris GBAGUIDI</h5>
+                            <div class="team-position">Formations et partenariat</div>
+                            <div>
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-5">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3 fade-in">
+                        <div class="team-card">
+                            <img src="assets/img/fructueux.jpeg" alt="Alain ADJIBADE" class="team-img w-100">
+                            <div class="team-content">
+                                <h5 class="mb-1">Fructueux ABOH</h5>
+                                <div class="team-position">Chargé de la communication et trésorier</div>
+                                <div>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3 fade-in">
+                        <div class="team-card">
+                            <img src="assets/img/yolande.jpeg" alt="Brice Alexandre AZAR" class="team-img w-100">
+                            <div class="team-content">
+                                <h5 class="mb-1">Yolande KPADONOUR</h5>
+                                <div class="team-position">Sécrétaire générale</div>
+                                <div>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3 fade-in">
+                        <div class="team-card">
+                            <img src="assets/img/bryan.jpeg" alt="Kadirath-lah AHLIN" class="team-img w-100">
+                            <div class="team-content">
+                                <h5 class="mb-1">Brayan LOKO</h5>
+                                <div class="team-position">Community manager</div>
+                                <div>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3 fade-in">
+                        <div class="team-card">
+                            <img src="assets/img/christabelle.jpeg" alt="Daris GBAGUIDI" class="team-img w-100">
+                            <div class="team-content">
+                                <h5 class="mb-1">Christabelle ASSOGBA</h5>
+                                <div class="team-position">Sécrétaire adjointe</div>
+                                <div>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section améliorée -->
+  <section class="partner-section section">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title fade-in">Nos partenaires</h2>
+                <p class="section-subtitle fade-in">Ensemble pour un Bénin plus propre</p>
+            </div>
+            
+            <div class="partner-container fade-in">
+                <!-- Filigranes décoratifs -->
+                <div class="watermark watermark-top">PARTENAIRES</div>
+                <div class="watermark watermark-bottom">COLLABORATION</div>
+                
+                <!-- Image unique des partenaires -->
+                <img src="assets/img/partener.jpeg" 
+                     alt="Tous nos partenaires" 
+                     class="partner-image">
+                
+                <p class="partner-caption fade-in">Nos précieux partenaires qui soutiennent notre mission pour un Bénin plus propre</p>
+                
+                <div class="partner-description fade-in">
+                    <p>Nous sommes fiers de collaborer avec ces organisations engagées qui partagent notre vision d'un environnement urbain propre et sain. Leur soutien nous permet de mener à bien nos projets d'assainissement et de sensibilisation à travers tout le Bénin.</p>
+                    <p>Ensemble, nous travaillons à transformer nos villes et à créer un impact durable pour les générations futures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- News Section améliorée -->
+    <section id="news" class="py-5 bg-light section">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title fade-in">Dernières actualités</h2>
+                <p class="section-subtitle fade-in">Suivez nos dernières activités et événements</p>
+            </div>
+            <div class="row g-4">
+                    <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="news-card">
+                        <div class="position-relative">
+                            <img src="assets/img/cisa.jpeg" alt="1ère descente" class="news-img w-100">
+                            <div class="news-date">Mars 2025</div>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-badge">Reconnaissance</span>
+                            <h4>Certificat de reconnaissance pour l’impact social des actions de l’ONG Bénin Ville propre sur la communauté béninoise décerné par le cisa</h4>
+                            <p>Les activités du concours officiellement lancées avec une forte mobilisation citoyenne...</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-2">Lire la suite</a>
+                        </div>
+                    </div>
+                </div>
+              
+                
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="news-card">
+                        <div class="position-relative">
+                            <img src="assets/img/reconnaissance.JPG" alt="3ème descente" class="news-img w-100">
+                            <div class="news-date">Février 2025</div>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-badge">Trophée</span>
+                            <h4>Trophée d’Honneur pour notre engagement en faveur de l’assainissement urbain et de la promotion d’un cadre de vie sain</h4>
+                            <p>Vers la dernière ligne droite du concours citoyen avec une mobilisation croissante...</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-2">Lire la suite</a>
+                        </div>
+                    </div>
+                </div>
+
+                  
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="news-card">
+                        <div class="position-relative">
+                            <img src="assets/img/4.jpeg" alt="1ère descente" class="news-img w-100">
+                            <div class="news-date">Octobre 2024</div>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-badge">2ème meilleur projet</span>
+                            <h4>Projet forêt urbaine primé 2ème meilleur projet par le Ministère du Cadre de Vie et des Transports lors du gala du FIC 2024</h4>
+                            <p>Les activités du concours officiellement lancées avec une forte mobilisation citoyenne...</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-2">Lire la suite</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5 fade-in">
+                <a href="#" class="btn btn-primary btn-lg">Voir toutes les actualités</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section améliorée -->
+    <section id="contact" class="py-5 section">
+        <div class="container">
+            <div class="cta-section">
+                <div class="row g-0">
+                    <div class="col-lg-8 cta-content">
+                        <h2 class="mb-4">Prêt à nous soutenir ?</h2>
+                        <p class="mb-5">Rejoignez notre mission pour un Bénin plus propre et plus sain. Que vous soyez un particulier, une entreprise ou une institution, votre soutien fait la différence.</p>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-phone-alt fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0">Téléphone</h5>
+                                        <p class="mb-0">+229 96614562 / 44494444</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-envelope fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0">Email</h5>
+                                        <p class="mb-0">bvpinfosservice@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fab fa-whatsapp fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0">WhatsApp</h5>
+                                        <p class="mb-0">+229 53694646</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="contact-info">
+                            <h3 class="mb-4">Contactez-nous</h3>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Votre nom">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Votre email">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="tel" class="form-control" placeholder="Votre téléphone">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="3" placeholder="Votre message"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-light w-100">Envoyer</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer amélioré -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <img src="assets/img/logo.jpg" alt="Bénin Villes Propres" class="mb-4" height="100px" width="150px">
+                    <p class="mb-4" style="color: white;">Bénin Villes Propres (BVP) est une ONG engagée dans la promotion de la propreté urbaine et de l'assainissement au Bénin.</p>
+                    <div>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Navigation</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a href="#" class="nav-link">Accueil</a></li>
+                        <li class="nav-item"><a href="#about" class="nav-link">À propos</a></li>
+                        <li class="nav-item"><a href="#achievements" class="nav-link">Réalisations</a></li>
+                        <li class="nav-item"><a href="#projects" class="nav-link">Projets</a></li>
+                        <li class="nav-item"><a href="#news" class="nav-link">Actualités</a></li>
+                        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="footer-title">Liens utiles</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a href="#" class="nav-link">Devenir bénévole</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Faire un don</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Devenir partenaire</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Politique de confidentialité</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Mentions légales</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="footer-title">Contact</h5>
+                    <ul class="nav flex-column footer-contact">
+                        <li class="mb-3"><i class="fas fa-map-marker-alt me-2"></i> Quartier GBETO carré, 250 Maison AHOZIN</li>
+                        <li class="mb-3"><i class="fas fa-phone-alt me-2"></i> +229 96614562 / 44494444</li>
+                        <li class="mb-3"><i class="fas fa-envelope me-2"></i> bvpinfosservice@gmail.com</li>
+                        <li><i class="fab fa-whatsapp me-2"></i> +229 53694646</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-5 border-light">
+            
+            <div class="text-center py-4">
+                <p class="mb-0">&copy; 2025 Bénin Villes Propres. Tous droits réservés. <span class="d-block d-md-inline mt-2 mt-md-0">"Une ville propre, des vies sauvées"</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button amélioré -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- WhatsApp button amélioré -->
+    <a href="https://wa.me/22953694646" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Auto-advance carousel every 5 seconds
+        const myCarousel = document.getElementById('heroCarousel');
+        const carousel = new bootstrap.Carousel(myCarousel, {
+            interval: 5000,
+            wrap: true
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+        
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- Modal Faire un don -->
+<div class="modal fade" id="donModal" tabindex="-1" aria-labelledby="donModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content" style="border-radius: 15px; overflow: hidden;">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="donModalLabel"><i class="fas fa-hand-holding-heart me-2"></i> Faire un don</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body p-4">
+        <p class="mb-4 text-center">Votre soutien nous aide à maintenir nos actions pour un Bénin plus propre 🌍💚</p>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <h6 class="fw-bold text-primary"><i class="fas fa-mobile-alt me-2"></i> Mobile Money</h6>
+            <ul class="list-group">
+              <li class="list-group-item"><strong>MTN :</strong> +229 0153 69 46 46</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6">
+            <h6 class="fw-bold text-primary"><i class="fas fa-university me-2"></i> Coordonnées bancaires</h6>
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Banque :</strong></li>
+              <li class="list-group-item"><strong>N°compte BSIC :</strong> 00300235931</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-4 text-center">
+          <p class="small text-muted">Merci de préciser en référence : <strong>"Don Bénin Villes Propres"</strong></p>
+        </div>
+      </div>
+      <div class="modal-footer bg-light">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - Bénin Villes Propres</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --primary-dark: #1F6B3D;
+            --primary-light: #3CB371;
+            --secondary-color: #4682B4;
+            --secondary-dark: #2A4E6E;
+            --white: #FFFFFF;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6C757D;
+            --gold: #D4AF37;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.12);
+            --border-radius: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            line-height: 1.7;
+            background-color: #fafafa;
+            overflow-x: hidden;
+        }
+
+         /* Navigation améliorée */
+        .navbar {
+            padding: 20px 0;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            background: #FFFFFF !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .navbar-brand img {
+            transition: all 0.4s ease;
+            height: 70px;
+        }
+
+        .navbar.scrolled .navbar-brand img {
+            height: 50px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 1.2rem !important;
+            position: relative;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1.2rem;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: calc(100% - 2.4rem);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 180px 0 100px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,170.7C384,160,480,160,576,176C672,192,768,224,864,224C960,224,1056,192,1152,181.3C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .breadcrumb {
+            background: rgba(255,255,255,0.15);
+            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            display: inline-flex;
+            backdrop-filter: blur(5px);
+        }
+
+        .breadcrumb-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb-item.active {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .about-section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.8rem;
+            font-weight: 800;
+            font-size: 2.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 5px;
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .text-center .section-title:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-weight: 300;
+        }
+
+        .president-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .president-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .president-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 40px 40px 100px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .president-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gold);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .president-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .president-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .president-content {
+            padding: 40px;
+            padding-top: 70px;
+            margin-top: -80px;
+            position: relative;
+            z-index: 5;
+            background: white;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        .president-name {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .president-position {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .president-message {
+            font-style: italic;
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            position: relative;
+            padding: 20px 0 30px;
+        }
+
+        .president-message::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: -20px;
+            font-size: 6rem;
+            color: var(--primary-light);
+            opacity: 0.2;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .history-section {
+            background-color: var(--light);
+            padding: 100px 0;
+        }
+
+        .history-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--primary-color);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: calc(50% - 40px);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 80px;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: calc(50% + 40px);
+            padding-left: 80px;
+        }
+
+        .timeline-year {
+            background: var(--primary-color);
+            color: white;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .values-section {
+            padding: 100px 0;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            height: 100%;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(46, 139, 87, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+
+        .footer {
+            background: #1a1f25;
+            color: rgba(255,255,255,0.7);
+            padding-top: 80px;
+        }
+
+        @media (max-width: 992px) {
+            .page-header {
+                padding: 150px 0 80px;
+            }
+            
+            .page-title {
+                font-size: 2.8rem;
+            }
+            
+            .history-timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: calc(100% - 80px);
+                margin-left: 80px;
+                text-align: left;
+                padding-right: 0 !important;
+                padding-left: 40px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .president-header {
+                padding: 30px 20px 80px;
+            }
+            
+            .president-content {
+                padding: 30px 20px;
+                padding-top: 60px;
+                margin-top: -60px;
+            }
+            
+            .president-photo {
+                width: 140px;
+                height: 140px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .breadcrumb {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/logo.jpg" alt="Bénin Villes Propres" height="100" width="100">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#achievements">Réalisations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Équipe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#news">Actualités</a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#donModal">Faire Un Don</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- En-tête de page -->
+    <header class="page-header">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="page-title">À Propos de Notre ONG</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">À Propos</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Notre Mission -->
+    <section class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="position-relative">
+                        <img src="assets/img/1.jpeg" 
+                             alt="Équipe Bénin Villes Propres" 
+                             class="img-fluid rounded-4 shadow-lg">
+                        <div class="position-absolute bottom-0 start-0 bg-primary text-white p-3 rounded-end">
+                            <h4 class="mb-0">Depuis 2023</h4>
+                            <p class="mb-0">Engagés pour un Bénin propre</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Notre Mission</h2>
+                    <p class="lead mb-4">Bénin Villes Propres (BVP) est une ONG engagée dans la promotion de la propreté urbaine et de l'assainissement au Bénin. Notre mission est de créer un environnement urbain sain et durable pour les générations futures.</p>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="me-4">
+                            <div class="bg-primary text-white rounded-circle p-3 d-inline-block mb-2">
+                                <i class="fas fa-leaf fa-2x"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Engagement environnemental</h4>
+                            <p>Nous nous engageons à créer un environnement urbain sain et durable.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="me-4">
+                            <div class="bg-primary text-white rounded-circle p-3 d-inline-block mb-2">
+                                <i class="fas fa-hands-helping fa-2x"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Partenariats stratégiques</h4>
+                            <p>Collaboration avec les institutions publiques et privées pour maximiser notre impact.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mot du Président -->
+    <section class="history-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="president-card">
+                        <div class="president-header">
+                            <div class="president-badge">Mot du Président</div>
+                            <div class="president-photo">
+                                <img src="assets/img/president.jpeg" alt="Alain ADJIBADE, Président">
+                            </div>
+                        </div>
+                        <div class="president-content">
+                            <h3 class="president-name">Alain ADJIBADE</h3>
+                            <div class="president-position">Président Fondateur</div>
+                            <div class="president-message">
+                                <p>Chers partenaires, bénévoles et amis de Bénin Villes Propres,</p>
+                                <p>Notre ONG est née d'une conviction profonde : la propreté des villes est un droit fondamental pour tous les citoyens et une condition essentielle pour le développement durable de notre pays.</p>
+                                <p>Depuis notre création, nous avons œuvré sans relâche pour transformer le paysage urbain de notre cher Bénin. Chaque action de nettoyage, chaque campagne de sensibilisation, chaque partenariat noué représente une victoire dans notre combat pour un environnement plus sain.</p>
+                                <p>Je suis particulièrement fier de la mobilisation citoyenne que nous avons réussi à créer. Nos 5000 bénévoles sont la preuve vivante que les Béninois sont prêts à s'engager pour leur cadre de vie.</p>
+                                <p>L'avenir nous réserve encore de beaux défis, mais avec votre soutien et notre détermination inébranlable, je suis convaincu que nous parviendrons à faire de toutes nos villes des modèles de propreté en Afrique.</p>
+                                <p>Ensemble, continuons ce beau combat pour un Bénin plus propre et plus vert !</p>
+                            </div>
+                            <div class="signature">Alain ADJIBADE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notre Histoire -->
+    <section class="about-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Notre Histoire</h2>
+                    <p class="section-subtitle">Le parcours de Bénin Villes Propres depuis sa création</p>
+                </div>
+            </div>
+            
+            <div class="history-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h4>Fondation de l'ONG</h4>
+                        <p>Création de Bénin Villes Propres par un groupe de jeunes passionnés par l'environnement et le développement durable.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">Jan 2024</div>
+                    <div class="timeline-content">
+                        <h4>Première action majeure</h4>
+                        <p>Organisation de notre première grande opération de nettoyage à Cotonou avec 200 bénévoles mobilisés.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">Mai 2024</div>
+                    <div class="timeline-content">
+                        <h4>Partenariat avec la Mairie</h4>
+                        <p>Signature d'un partenariat stratégique avec la Mairie de Cotonou pour des actions conjointes d'assainissement.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">Sep 2024</div>
+                    <div class="timeline-content">
+                        <h4>Lancement du Concours Ville Propre</h4>
+                        <p>Mise en place de notre initiative phare qui récompense les communes les plus propres du Bénin.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-content">
+                        <h4>Expansion nationale</h4>
+                        <p>Déploiement de nos activités dans 10 communes supplémentaires et dépassement des 5000 bénévoles actifs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nos Valeurs -->
+    <section class="values-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Nos Valeurs Fondamentales</h2>
+                    <p class="section-subtitle">Les principes qui guident chacune de nos actions</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h4>Engagement</h4>
+                        <p>Nous nous engageons pleinement pour la propreté de nos villes et le bien-être de nos concitoyens.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Citoyenneté</h4>
+                        <p>Nous croyons en la puissance de l'action collective et de la mobilisation citoyenne.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4>Durabilité</h4>
+                        <p>Toutes nos actions sont pensées pour avoir un impact durable sur l'environnement urbain.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Innovation</h4>
+                        <p>Nous développons des solutions innovantes pour répondre aux défis de l'assainissement urbain.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <img src="assets/img/logo.jpg" alt="Bénin Villes Propres" class="mb-4" height="80">
+                    <p class="mb-4">Bénin Villes Propres (BVP) est une ONG engagée dans la promotion de la propreté urbaine et de l'assainissement au Bénin.</p>
+                    <div>
+                        <a href="#" class="btn btn-sm btn-outline-light me-2 mb-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-sm btn-outline-light me-2 mb-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-sm btn-outline-light me-2 mb-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-sm btn-outline-light me-2 mb-2"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="btn btn-sm btn-outline-light mb-2"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-4">Liens Rapides</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-light"><i class="fas fa-chevron-right me-2"></i> Accueil</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-light"><i class="fas fa-chevron-right me-2"></i> À Propos</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-light"><i class="fas fa-chevron-right me-2"></i> Projets</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-light"><i class="fas fa-chevron-right me-2"></i> Actualités</a></li>
+                        <li><a href="#" class="text-decoration-none text-light"><i class="fas fa-chevron-right me-2"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-4">Contactez-nous</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fas fa-map-marker-alt text-primary me-2"></i> Quartier GBETO carré, 250 Maison AHOZIN</li>
+                        <li class="mb-3"><i class="fas fa-phone-alt text-primary me-2"></i> +229 96614562 / 44494444</li>
+                        <li class="mb-3"><i class="fas fa-envelope text-primary me-2"></i> bvpinfosservice@gmail.com</li>
+                        <li><i class="fab fa-whatsapp text-primary me-2"></i> +229 53694646</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-5 border-light">
+            
+            <div class="text-center py-4">
+                <p class="mb-0">&copy; 2025 Bénin Villes Propres. Tous droits réservés. <span class="d-block d-md-inline mt-2 mt-md-0">"Une ville propre, des vies sauvées"</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
